@@ -144,4 +144,23 @@ public class PokerTest {
         assertEquals(1, repeatingCard.size());
         assertEquals(3, repeatingCard.get(2));
     }
+
+    @Test
+    void should_return_4_and_pokerCard_when_getRepetitivePokerCard_given_four_same_card() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("C", "2"),
+                new PokerCard("D", "2"),
+                new PokerCard("H", "2"),
+                new PokerCard("C","5"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Map<Integer, Integer> repeatingCard = pokerCardGroup.getRepeatingCard();
+
+        //then
+        assertEquals(1, repeatingCard.size());
+        assertEquals(4, repeatingCard.get(2));
+    }
 }
