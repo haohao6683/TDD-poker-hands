@@ -87,4 +87,22 @@ public class PokerTest {
         //then
         assertTrue(result);
     }
+
+    @Test
+    void should_return_true_when_getStraightAndFlush_given_straight_and_flush() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "T"),
+                new PokerCard("H", "J"),
+                new PokerCard("H", "Q"),
+                new PokerCard("H", "K"),
+                new PokerCard("H","A"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        boolean result = pokerCardGroup.isStraight() && pokerCardGroup.isFlush();
+
+        //then
+        assertTrue(result);
+    }
 }
