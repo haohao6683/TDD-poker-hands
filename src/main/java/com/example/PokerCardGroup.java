@@ -1,12 +1,15 @@
 package com.example;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PokerCardGroup {
     private final List<PokerCard> pokerCardList;
     private PokerCard highCard;
     private boolean isFlush = true;
     private boolean isStraight = true;
+    private Map<Integer, Integer> repeatingCard = new HashMap<>();
 
     public PokerCardGroup(List<PokerCard> pokerCardList) {
         this.pokerCardList = pokerCardList;
@@ -25,6 +28,10 @@ public class PokerCardGroup {
 
     public boolean isFlush() {
         return isFlush;
+    }
+
+    public Map<Integer, Integer> getRepeatingCard() {
+        return repeatingCard;
     }
 
     private void findHighCard() {
