@@ -2,6 +2,10 @@ package com.example;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -16,6 +20,32 @@ public class PokerTest {
 
         //when
         int result = pokerCard1.compareTo(pokerCard2);
+
+        //then
+        assertEquals(1, result);
+    }
+
+    @Test
+    void should_return_1_when_compare_two_pack_of_cards_given_the_first_pack_is_bigger() {
+        //given
+        List<PokerCard> biggerOne = Arrays.asList(
+                new PokerCard("C", "2"),
+                new PokerCard("H", "3"),
+                new PokerCard("S", "5"),
+                new PokerCard("D", "9"),
+                new PokerCard("C","A"));
+
+        List<PokerCard> smallerOne = Arrays.asList(
+                new PokerCard("C", "2"),
+                new PokerCard("H", "3"),
+                new PokerCard("S", "4"),
+                new PokerCard("D", "8"),
+                new PokerCard("C","K"));
+
+        //when
+        PokerCardGroup pokerCardGroup1 = new PokerCardGroup(biggerOne);
+        PokerCardGroup pokerCardGroup2 = new PokerCardGroup(smallerOne);
+        int result = pokerCardGroup1.getHighCard.compareTo(pokerCardGroup2.getHighCard);
 
         //then
         assertEquals(1, result);
