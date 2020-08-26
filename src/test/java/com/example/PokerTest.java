@@ -113,9 +113,9 @@ public class PokerTest {
         List<PokerCard> pokerCards = Arrays.asList(
                 new PokerCard("H", "2"),
                 new PokerCard("C", "2"),
-                new PokerCard("D", "Q"),
-                new PokerCard("H", "K"),
-                new PokerCard("C","A"));
+                new PokerCard("D", "4"),
+                new PokerCard("H", "3"),
+                new PokerCard("C","5"));
         PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
 
         //when

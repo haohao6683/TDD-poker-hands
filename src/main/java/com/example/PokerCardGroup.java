@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ public class PokerCardGroup {
         findHighCard();
         checkFlush();
         checkStraight();
+        calculateRepeatCard();
     }
 
     public PokerCard getHighCard() {
@@ -56,5 +58,22 @@ public class PokerCardGroup {
                 break;
             }
         }
+    }
+
+    private void calculateRepeatCard() {
+        for (PokerCard pokerCard : pokerCardList) {
+            if (repeatingCard.containsKey(pokerCard.getValue())) {
+                repeatingCard.put(pokerCard.getValue(), repeatingCard.get(pokerCard.getValue()) + 1);
+                continue;
+            }
+            repeatingCard.put(pokerCard.getValue(), 1);
+        }
+        Map<Integer, Integer> newRepeatCard = new HashMap<>();
+        for (Map.Entry<Integer, Integer> entry : repeatingCard.entrySet()) {
+            if (!entry.getValue().equals(1)) {
+                newRepeatCard.put(entry.getKey(), entry.getValue());
+            }
+        }
+        this.repeatingCard = newRepeatCard;
     }
 }
