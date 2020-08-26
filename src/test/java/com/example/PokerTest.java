@@ -29,11 +29,11 @@ public class PokerTest {
     void should_return_1_when_compare_two_pack_of_cards_given_the_first_pack_is_bigger() {
         //given
         List<PokerCard> biggerOne = Arrays.asList(
-                new PokerCard("C", "2"),
+                new PokerCard("C", "A"),
                 new PokerCard("H", "3"),
-                new PokerCard("S", "5"),
-                new PokerCard("D", "9"),
-                new PokerCard("C","A"));
+                new PokerCard("S", "8"),
+                new PokerCard("D", "2"),
+                new PokerCard("C","4"));
 
         List<PokerCard> smallerOne = Arrays.asList(
                 new PokerCard("C", "2"),
@@ -45,7 +45,7 @@ public class PokerTest {
         //when
         PokerCardGroup pokerCardGroup1 = new PokerCardGroup(biggerOne);
         PokerCardGroup pokerCardGroup2 = new PokerCardGroup(smallerOne);
-        int result = pokerCardGroup1.getHighCard.compareTo(pokerCardGroup2.getHighCard);
+        int result = pokerCardGroup1.getHighCard().compareTo(pokerCardGroup2.getHighCard());
 
         //then
         assertEquals(1, result);
