@@ -69,4 +69,22 @@ public class PokerTest {
         //then
         assertTrue(result);
     }
+
+    @Test
+    void should_return_true_when_getStraight_given_straight() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "T"),
+                new PokerCard("C", "J"),
+                new PokerCard("S", "Q"),
+                new PokerCard("D", "K"),
+                new PokerCard("H","A"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        boolean result = pokerCardGroup.isStraight();
+
+        //then
+        assertTrue(result);
+    }
 }
