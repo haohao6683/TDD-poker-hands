@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class PokerTest {
@@ -49,5 +50,23 @@ public class PokerTest {
 
         //then
         assertEquals(1, result);
+    }
+
+    @Test
+    void should_return_true_when_getFlush_given_flush() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "A"),
+                new PokerCard("H", "3"),
+                new PokerCard("H", "8"),
+                new PokerCard("H", "2"),
+                new PokerCard("H","4"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        boolean result = pokerCardGroup.isFlush();
+
+        //then
+        assertTrue(result);
     }
 }
