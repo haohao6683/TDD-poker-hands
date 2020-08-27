@@ -15,8 +15,8 @@ public enum PokerValue {
     KING("K", 13),
     ACE("A", 14);
 
-    private String valueName;
-    private Integer totalValue;
+    private final String valueName;
+    private final Integer totalValue;
 
     PokerValue(String valueName, Integer totalValue) {
         this.valueName = valueName;
