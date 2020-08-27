@@ -2,7 +2,6 @@ package com.example;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -372,11 +371,7 @@ public class PokerTest {
         List<PokerCard> secondPokerCardList = pokerGame.getSecondGroup().getPokerCardList();
 
         //then
-        firstPokerCards.forEach(pokerCard -> {
-            assertTrue(firstPokerCardList.contains(pokerCard));
-        });
-        secondPokerCards.forEach(pokerCard -> {
-            assertTrue(secondPokerCardList.contains(pokerCard));
-        });
+        firstPokerCards.forEach(pokerCard -> assertTrue(firstPokerCardList.contains(pokerCard)));
+        secondPokerCards.forEach(pokerCard -> assertTrue(secondPokerCardList.contains(pokerCard)));
     }
 }
