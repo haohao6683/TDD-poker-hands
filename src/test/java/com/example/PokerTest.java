@@ -309,6 +309,6 @@ public class PokerTest {
         Integer pokerGroupType = pokerCardGroup.getType();
 
         //then
-        assertEquals(PokerGroupType.STRAIGHT, pokerGroupType);
+        assertEquals(PokerGroupType.THREE_OF_A_KIND, pokerGroupType);
     }
 }

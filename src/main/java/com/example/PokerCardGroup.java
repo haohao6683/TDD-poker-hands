@@ -103,6 +103,10 @@ public class PokerCardGroup {
         }
         if (isStraight) {
             type = PokerGroupType.STRAIGHT;
+            return;
+        }
+        if (repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD) && repeatingCard.size() == PokerGroupType.ONE_PACK_REPEATING) {
+            type = PokerGroupType.THREE_OF_A_KIND;
         }
     }
 }
