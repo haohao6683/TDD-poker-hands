@@ -57,8 +57,8 @@ public class PokerCardGroup {
     }
 
     private void checkStraight() {
-        for(int i = 0; i < pokerCardList.size() - 1; i++){
-            if(!pokerCardList.get(i).getValue().equals(pokerCardList.get(i+1).getValue() - 1) ){
+        for (int i = 0; i < pokerCardList.size() - 1; i++) {
+            if (!pokerCardList.get(i).getValue().equals(pokerCardList.get(i + 1).getValue() - 1)) {
                 isStraight = false;
                 break;
             }
@@ -91,11 +91,9 @@ public class PokerCardGroup {
             type = PokerGroupType.FOUR_OF_A_KIND;
             return;
         }
-        if (repeatingCard.size() == PokerGroupType.TWO_PACK_REPEATING) {
-            if (repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD)) {
-                type = PokerGroupType.FULL_HOUSE;
-                return;
-            }
+        if (repeatingCard.size() == PokerGroupType.TWO_PACK_REPEATING && repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD)) {
+            type = PokerGroupType.FULL_HOUSE;
+            return;
         }
         if (isFlush) {
             type = PokerGroupType.FLUSH;
@@ -107,6 +105,10 @@ public class PokerCardGroup {
         }
         if (repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD) && repeatingCard.size() == PokerGroupType.ONE_PACK_REPEATING) {
             type = PokerGroupType.THREE_OF_A_KIND;
+            return;
+        }
+        if (repeatingCard.size() == PokerGroupType.TWO_PACK_REPEATING && !repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD)) {
+            type = PokerGroupType.TWO_PAIRS;
         }
     }
 }
