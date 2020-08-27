@@ -329,4 +329,22 @@ public class PokerTest {
         //then
         assertEquals(PokerGroupType.TWO_PAIRS, pokerGroupType);
     }
+
+    @Test
+    void should_return_correct_poker_group_type_when_getType_given_normal_poker_group() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("S", "Q"),
+                new PokerCard("H", "4"),
+                new PokerCard("D", "7"),
+                new PokerCard("C","T"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Integer pokerGroupType = pokerCardGroup.getType();
+
+        //then
+        assertEquals(PokerGroupType.HIGH_CARD, pokerGroupType);
+    }
 }
