@@ -10,6 +10,7 @@ public class PokerCardGroup {
     private boolean isFlush = true;
     private boolean isStraight = true;
     private Map<Integer, Integer> repeatingCard = new HashMap<>();
+    private Integer type;
 
     public PokerCardGroup(List<PokerCard> pokerCardList) {
         this.pokerCardList = pokerCardList;
@@ -17,6 +18,7 @@ public class PokerCardGroup {
         checkFlush();
         checkStraight();
         calculateRepeatCard();
+        calculatePokerGroupType();
     }
 
     public PokerCard getHighCard() {
@@ -33,6 +35,10 @@ public class PokerCardGroup {
 
     public Map<Integer, Integer> getRepeatingCard() {
         return repeatingCard;
+    }
+
+    public Integer getType() {
+        return type;
     }
 
     private void findHighCard() {
@@ -74,5 +80,11 @@ public class PokerCardGroup {
             }
         }
         this.repeatingCard = newRepeatCard;
+    }
+
+    private void calculatePokerGroupType() {
+        if (isStraight && isFlush) {
+            type = PokerGroupType.STRAIGHT_AND_FLUSH;
+        }
     }
 }
