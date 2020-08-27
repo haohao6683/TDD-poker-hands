@@ -311,4 +311,22 @@ public class PokerTest {
         //then
         assertEquals(PokerGroupType.THREE_OF_A_KIND, pokerGroupType);
     }
+
+    @Test
+    void should_return_correct_poker_group_type_when_getType_given_two_of_a_kind_and_two_of_other_kind_poker_group() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("S", "4"),
+                new PokerCard("H", "4"),
+                new PokerCard("D", "2"),
+                new PokerCard("C","6"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Integer pokerGroupType = pokerCardGroup.getType();
+
+        //then
+        assertEquals(PokerGroupType.TWO_PAIRS, pokerGroupType);
+    }
 }
