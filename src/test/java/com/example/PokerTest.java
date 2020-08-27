@@ -347,4 +347,36 @@ public class PokerTest {
         //then
         assertEquals(PokerGroupType.HIGH_CARD, pokerGroupType);
     }
+
+    @Test
+    void should_transfer_string_to_pokerCardGroup_when_initPokerGroups_given_input_string() {
+        //given
+        List<PokerCard> firstPokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("D", "3"),
+                new PokerCard("S", "5"),
+                new PokerCard("C", "9"),
+                new PokerCard("D","K"));
+        List<PokerCard> secondPokerCards = Arrays.asList(
+                new PokerCard("C", "2"),
+                new PokerCard("H", "3"),
+                new PokerCard("S", "4"),
+                new PokerCard("C", "8"),
+                new PokerCard("H","A"));
+        String input = "Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH";
+        PokerGame pokerGame = new PokerGame();
+
+        //when
+        pokerGame.initPokerGroups(input);
+        List<PokerCard> firstPokerCardList = pokerGame.getFirstGroup().getPokerCardList();
+        List<PokerCard> secondPokerCardList = pokerGame.getSecondGroup().getPokerCardList();
+
+        //then
+        firstPokerCards.forEach(pokerCard -> {
+            assertTrue(firstPokerCardList.contains(pokerCard));
+        });
+        secondPokerCards.forEach(pokerCard -> {
+            assertTrue(secondPokerCardList.contains(pokerCard));
+        });
+    }
 }
