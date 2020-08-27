@@ -10,7 +10,7 @@ public class PokerCardGroup {
     private boolean isFlush = true;
     private boolean isStraight = true;
     private Map<Integer, Integer> repeatingCard = new HashMap<>();
-    private Integer type;
+    private Integer type = PokerGroupType.HIGH_CARD;
 
     public PokerCardGroup(List<PokerCard> pokerCardList) {
         this.pokerCardList = pokerCardList;
