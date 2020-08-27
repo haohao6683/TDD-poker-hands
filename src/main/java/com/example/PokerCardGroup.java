@@ -99,6 +99,10 @@ public class PokerCardGroup {
         }
         if (isFlush) {
             type = PokerGroupType.FLUSH;
+            return;
+        }
+        if (isStraight) {
+            type = PokerGroupType.STRAIGHT;
         }
     }
 }
