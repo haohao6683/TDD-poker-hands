@@ -86,5 +86,8 @@ public class PokerCardGroup {
         if (isStraight && isFlush) {
             type = PokerGroupType.STRAIGHT_AND_FLUSH;
         }
+        if (repeatingCard.containsValue(PokerGroupType.FOUR_REPEATING_CARD)) {
+            type = PokerGroupType.FOUR_OF_A_KIND;
+        }
     }
 }

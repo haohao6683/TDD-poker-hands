@@ -10,4 +10,6 @@ public interface PokerGroupType {
     Integer FULL_HOUSE = 7;
     Integer FOUR_OF_A_KIND = 8;
     Integer STRAIGHT_AND_FLUSH = 9;
+
+    Integer FOUR_REPEATING_CARD = 4;
 }
