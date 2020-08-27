@@ -221,4 +221,22 @@ public class PokerTest {
         //then
         assertEquals(PokerGroupType.STRAIGHT_AND_FLUSH, pokerGroupType);
     }
+
+    @Test
+    void should_return_correct_poker_group_type_when_getType_given_four_of_a_kind_poker_group() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("C", "3"),
+                new PokerCard("D", "2"),
+                new PokerCard("H", "2"),
+                new PokerCard("S","2"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Integer pokerGroupType = pokerCardGroup.getType();
+
+        //then
+        assertEquals(PokerGroupType.FOUR_OF_A_KIND, pokerGroupType);
+    }
 }
