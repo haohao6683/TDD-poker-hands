@@ -293,4 +293,22 @@ public class PokerTest {
         //then
         assertEquals(PokerGroupType.STRAIGHT, pokerGroupType);
     }
+
+    @Test
+    void should_return_correct_poker_group_type_when_getType_given_three_of_a_kind_poker_group() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("S", "4"),
+                new PokerCard("H", "4"),
+                new PokerCard("D", "4"),
+                new PokerCard("C","6"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Integer pokerGroupType = pokerCardGroup.getType();
+
+        //then
+        assertEquals(PokerGroupType.STRAIGHT, pokerGroupType);
+    }
 }
