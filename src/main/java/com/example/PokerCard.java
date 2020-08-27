@@ -43,10 +43,7 @@ public class PokerCard implements Comparable<PokerCard> {
             return false;
         }
         PokerCard pokerCard = (PokerCard) object;
-        if (this.suit.equals(pokerCard.suit) && this.value.equals(pokerCard.value)) {
-            return true;
-        }
-        return false;
+        return this.suit.equals(pokerCard.suit) && this.value.equals(pokerCard.value);
     }
 
     @Override
