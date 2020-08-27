@@ -85,14 +85,20 @@ public class PokerCardGroup {
     private void calculatePokerGroupType() {
         if (isStraight && isFlush) {
             type = PokerGroupType.STRAIGHT_AND_FLUSH;
+            return;
         }
         if (repeatingCard.containsValue(PokerGroupType.FOUR_REPEATING_CARD)) {
             type = PokerGroupType.FOUR_OF_A_KIND;
+            return;
         }
         if (repeatingCard.size() == PokerGroupType.TWO_PACK_REPEATING) {
             if (repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD)) {
                 type = PokerGroupType.FULL_HOUSE;
+                return;
             }
+        }
+        if (isFlush) {
+            type = PokerGroupType.FLUSH;
         }
     }
 }
