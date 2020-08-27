@@ -38,6 +38,18 @@ public class PokerCard implements Comparable<PokerCard> {
     }
 
     @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof PokerCard)) {
+            return false;
+        }
+        PokerCard pokerCard = (PokerCard) object;
+        if (this.suit.equals(pokerCard.suit) && this.value.equals(pokerCard.value)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public int compareTo(PokerCard o) {
         if (this.value > o.getValue()) {
             return 1;

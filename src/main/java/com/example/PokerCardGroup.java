@@ -21,6 +21,10 @@ public class PokerCardGroup {
         calculatePokerGroupType();
     }
 
+    public List<PokerCard> getPokerCardList() {
+        return pokerCardList;
+    }
+
     public PokerCard getHighCard() {
         return highCard;
     }
