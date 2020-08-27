@@ -257,4 +257,22 @@ public class PokerTest {
         //then
         assertEquals(PokerGroupType.FULL_HOUSE, pokerGroupType);
     }
+
+    @Test
+    void should_return_correct_poker_group_type_when_getType_given_flush_poker_group() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("H", "3"),
+                new PokerCard("H", "5"),
+                new PokerCard("H", "A"),
+                new PokerCard("H","T"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Integer pokerGroupType = pokerCardGroup.getType();
+
+        //then
+        assertEquals(PokerGroupType.FLUSH, pokerGroupType);
+    }
 }
