@@ -203,4 +203,22 @@ public class PokerTest {
         assertEquals(2, repeatingCard.get(2));
         assertEquals(3, repeatingCard.get(3));
     }
+
+    @Test
+    void should_return_correct_poker_group_type_when_getType_given_straight_and_flush_poker_group() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("H", "3"),
+                new PokerCard("H", "4"),
+                new PokerCard("H", "5"),
+                new PokerCard("H","6"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Integer pokerGroupType = pokerCardGroup.getType();
+
+        //then
+        assertEquals(PokerGroupType.STRAIGHT_AND_FLUSH, pokerGroupType);
+    }
 }
