@@ -12,4 +12,9 @@ public interface PokerGroupType {
     Integer STRAIGHT_AND_FLUSH = 9;
 
     Integer FOUR_REPEATING_CARD = 4;
+    Integer THREE_REPEATING_CARD = 3;
+    Integer TWO_REPEATING_CARD = 2;
+
+    Integer TWO_PACK_REPEATING = 2;
+    Integer ONE_PACK_REPEATING = 1;
 }

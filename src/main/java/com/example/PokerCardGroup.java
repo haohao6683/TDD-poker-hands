@@ -89,5 +89,10 @@ public class PokerCardGroup {
         if (repeatingCard.containsValue(PokerGroupType.FOUR_REPEATING_CARD)) {
             type = PokerGroupType.FOUR_OF_A_KIND;
         }
+        if (repeatingCard.size() == PokerGroupType.TWO_PACK_REPEATING) {
+            if (repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD)) {
+                type = PokerGroupType.FULL_HOUSE;
+            }
+        }
     }
 }
