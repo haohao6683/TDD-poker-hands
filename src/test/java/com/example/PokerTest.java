@@ -379,6 +379,7 @@ public class PokerTest {
     void should_return_white_when_play_given_white_bigger_than_black() {
         //given
         String input = "Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH";
+
         //when
         PokerGame pokerGame = new PokerGame();
         pokerGame.initPokerGroups(input);

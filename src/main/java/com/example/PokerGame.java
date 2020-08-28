@@ -3,6 +3,7 @@ package com.example;
 import java.util.*;
 
 public class PokerGame {
+    public static final String TIED = "Tied";
     private String firstName;
     private String secondName;
     private PokerCardGroup firstGroup;
@@ -46,5 +47,27 @@ public class PokerGame {
         Map<String, List<PokerCard>> parse = parse(input);
         firstGroup = new PokerCardGroup(parse.get(firstName));
         secondGroup = new PokerCardGroup( parse.get(secondName));
+    }
+
+
+
+    public String play() {
+        if (firstGroup.getType() > secondGroup.getType()) {
+            return firstName;
+        } else if (firstGroup.getType() < secondGroup.getType()) {
+            return secondName;
+        } else {
+            switch (firstGroup.getType()) {
+                case PokerGroupType.HIGH_CARD: {
+                    if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) > 0) {
+                        return firstName;
+                    } else if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) < 0) {
+                        return secondName;
+                    }
+                    return TIED;
+                }
+                default: return TIED;
+            }
+        }
     }
 }
