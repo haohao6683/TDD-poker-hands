@@ -113,6 +113,10 @@ public class PokerCardGroup {
         }
         if (repeatingCard.size() == PokerGroupType.TWO_PACK_REPEATING && !repeatingCard.containsValue(PokerGroupType.THREE_REPEATING_CARD)) {
             type = PokerGroupType.TWO_PAIRS;
+            return;
+        }
+        if (repeatingCard.size() == PokerGroupType.ONE_PACK_REPEATING && repeatingCard.containsValue(PokerGroupType.TWO_REPEATING_CARD)) {
+            type = PokerGroupType.PAIR;
         }
     }
 }
