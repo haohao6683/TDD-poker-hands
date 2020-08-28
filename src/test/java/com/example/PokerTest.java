@@ -330,6 +330,24 @@ public class PokerTest {
     }
 
     @Test
+    void should_return_correct_poker_group_type_when_getType_given_pair_poker_group() {
+        //given
+        List<PokerCard> pokerCards = Arrays.asList(
+                new PokerCard("H", "2"),
+                new PokerCard("S", "2"),
+                new PokerCard("H", "3"),
+                new PokerCard("D", "T"),
+                new PokerCard("C","6"));
+        PokerCardGroup pokerCardGroup = new PokerCardGroup(pokerCards);
+
+        //when
+        Integer pokerGroupType = pokerCardGroup.getType();
+
+        //then
+        assertEquals(PokerGroupType.PAIR, pokerGroupType);
+    }
+
+    @Test
     void should_return_correct_poker_group_type_when_getType_given_normal_poker_group() {
         //given
         List<PokerCard> pokerCards = Arrays.asList(
