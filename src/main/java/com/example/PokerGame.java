@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PokerGame {
     public static final String TIED = "Tied";
@@ -57,17 +58,35 @@ public class PokerGame {
         } else if (firstGroup.getType() < secondGroup.getType()) {
             return secondName;
         } else {
-            switch (firstGroup.getType()) {
-                case PokerGroupType.HIGH_CARD: {
-                    if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) > 0) {
-                        return firstName;
-                    } else if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) < 0) {
-                        return secondName;
-                    }
-                    return TIED;
+            return compareWithSameType(firstGroup.getType());
+        }
+    }
+
+    private String compareWithSameType(Integer type) {
+        switch (type) {
+            case PokerGroupType.HIGH_CARD: {
+                if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) > 0) {
+                    return firstName;
+                } else if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) < 0) {
+                    return secondName;
                 }
-                default: return TIED;
+                return TIED;
             }
+            case PokerGroupType.FULL_HOUSE: {
+                int firstHighCard = firstGroup.getRepeatingCard().entrySet().stream()
+                        .filter(repeating -> repeating.getValue().equals(PokerGroupType.THREE_REPEATING_CARD))
+                        .collect(Collectors.toList()).get(0).getKey();
+                int secondHighCard = secondGroup.getRepeatingCard().entrySet().stream()
+                        .filter(repeating -> repeating.getValue().equals(PokerGroupType.THREE_REPEATING_CARD))
+                        .collect(Collectors.toList()).get(0).getKey();
+                if (firstHighCard > secondHighCard) {
+                    return firstName;
+                } else if (firstHighCard < secondHighCard) {
+                    return secondName;
+                }
+                return TIED;
+            }
+            default: return TIED;
         }
     }
 }
