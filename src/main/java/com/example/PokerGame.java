@@ -89,7 +89,8 @@ public class PokerGame {
             }
             case PokerGroupType.PAIR:
             case PokerGroupType.TWO_PAIRS:
-            case PokerGroupType.THREE_OF_A_KIND: {
+            case PokerGroupType.THREE_OF_A_KIND:
+            case PokerGroupType.FOUR_OF_A_KIND: {
                 int theFirstBiggerPair =  firstGroup.getRepeatingCard().keySet().stream().max(Integer::compareTo).get();
                 int theSecondBiggerPair = secondGroup.getRepeatingCard().keySet().stream().max(Integer::compareTo).get();
 
