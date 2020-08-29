@@ -50,6 +50,12 @@ public class PokerCardGroup {
         highCard = pokerCardList.get(pokerCardList.size() - 1);
     }
 
+    public Integer findHighCardWhenExistRepeatCard() {
+        return this.getPokerCardList().stream()
+                .filter(eachCard -> !this.getRepeatingCard().keySet().contains(eachCard.getValue()))
+                .max(PokerCard::compareTo).get().getValue();
+    }
+
     private void checkFlush() {
         String suit = pokerCardList.get(0).getSuit();
         for (PokerCard pokerCard : pokerCardList) {
