@@ -86,6 +86,17 @@ public class PokerGame {
                 }
                 return TIED;
             }
+            case PokerGroupType.PAIR: {
+                int firstHighCard = firstGroup.getPokerCardList().stream()
+                        .filter(eachCard -> !eachCard.getValue().equals(firstGroup.getHighCard().getValue()))
+                        .max(PokerCard::compareTo).get().getValue();
+
+                int secondHighCard = secondGroup.getPokerCardList().stream()
+                        .filter(eachCard -> !eachCard.getValue().equals(secondGroup.getHighCard().getValue()))
+                        .max(PokerCard::compareTo).get().getValue();
+
+                return (firstHighCard > secondHighCard) ? firstName : secondName;
+            }
             default: return TIED;
         }
     }
