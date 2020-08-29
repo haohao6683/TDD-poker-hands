@@ -66,7 +66,8 @@ public class PokerGame {
         switch (type) {
             case PokerGroupType.HIGH_CARD:
             case PokerGroupType.FLUSH:
-            case PokerGroupType.STRAIGHT_AND_FLUSH: {
+            case PokerGroupType.STRAIGHT_AND_FLUSH:
+            case PokerGroupType.STRAIGHT: {
                 if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) > 0) {
                     return firstName;
                 } else if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) < 0) {
@@ -102,14 +103,6 @@ public class PokerGame {
                 }
                 else{
                     return (theFirstBiggerPair > theSecondBiggerPair) ? firstName : secondName;
-                }
-            }
-            case PokerGroupType.STRAIGHT: {
-                if(firstGroup.getHighCard().getValue().equals(secondGroup.getHighCard().getValue())){
-                    return TIED;
-                }
-                else{
-                    return (firstGroup.getHighCard().getValue() > secondGroup.getHighCard().getValue()) ? firstName : secondName;
                 }
             }
             default: return TIED;
