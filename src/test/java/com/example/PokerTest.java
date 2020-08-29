@@ -462,4 +462,18 @@ public class PokerTest {
         //then
         assertEquals("Black", result);
     }
+
+    @Test
+    void should_return_black_when_play_given_black_bigger_than_white_with_three_of_kind() {
+        //given
+        String input = "Black: KH KD KS 5C 9D  White: 3C 3H 3S 4C 9H";
+
+        //when
+        PokerGame pokerGame = new PokerGame();
+        pokerGame.initPokerGroups(input);
+        String result = pokerGame.play();
+
+        //then
+        assertEquals("Black", result);
+    }
 }
