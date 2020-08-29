@@ -546,4 +546,18 @@ public class PokerTest {
         //then
         assertEquals("Black", result);
     }
+
+    @Test
+    void should_return_black_when_play_given_black_bigger_than_white_with_straight_flush() {
+        //given
+        String input = "Black: 5H 6H 7H 8H 9H  White: 3H 4H 5H 6H 7H";
+
+        //when
+        PokerGame pokerGame = new PokerGame();
+        pokerGame.initPokerGroups(input);
+        String result = pokerGame.play();
+
+        //then
+        assertEquals("Black", result);
+    }
 }
