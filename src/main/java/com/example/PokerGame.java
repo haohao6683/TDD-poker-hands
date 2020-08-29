@@ -101,6 +101,14 @@ public class PokerGame {
                     return (theFirstBiggerPair > theSecondBiggerPair) ? firstName : secondName;
                 }
             }
+            case PokerGroupType.STRAIGHT: {
+                if(firstGroup.getHighCard().getValue().equals(secondGroup.getHighCard().getValue())){
+                    return TIED;
+                }
+                else{
+                    return (firstGroup.getHighCard().getValue() > secondGroup.getHighCard().getValue()) ? firstName : secondName;
+                }
+            }
             default: return TIED;
         }
     }
