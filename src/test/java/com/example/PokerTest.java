@@ -448,4 +448,18 @@ public class PokerTest {
         //then
         assertEquals("Black", result);
     }
+
+    @Test
+    void should_return_black_when_play_given_the_two_pairs_is_the_same_but_black_has_the_bigger_high_card() {
+        //given
+        String input = "Black: 3H 3D 5S 5C TD  White: 3C 3H 5S 5C 9H";
+
+        //when
+        PokerGame pokerGame = new PokerGame();
+        pokerGame.initPokerGroups(input);
+        String result = pokerGame.play();
+
+        //then
+        assertEquals("Black", result);
+    }
 }
