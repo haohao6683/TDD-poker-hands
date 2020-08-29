@@ -64,7 +64,8 @@ public class PokerGame {
 
     private String compareWithSameType(Integer type) {
         switch (type) {
-            case PokerGroupType.HIGH_CARD: {
+            case PokerGroupType.HIGH_CARD:
+            case PokerGroupType.FLUSH: {
                 if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) > 0) {
                     return firstName;
                 } else if (firstGroup.getHighCard().compareTo(secondGroup.getHighCard()) < 0) {
