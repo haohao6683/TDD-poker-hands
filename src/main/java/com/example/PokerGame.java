@@ -86,13 +86,7 @@ public class PokerGame {
                 }
                 return TIED;
             }
-            case PokerGroupType.PAIR: {
-                int firstHighCard = firstGroup.findHighCardWhenExistRepeatCard();
-
-                int secondHighCard = secondGroup.findHighCardWhenExistRepeatCard();
-
-                return (firstHighCard > secondHighCard) ? firstName : secondName;
-            }
+            case PokerGroupType.PAIR:
             case PokerGroupType.TWO_PAIRS: {
                 int theFirstBiggerPair =  firstGroup.getRepeatingCard().keySet().stream().max(Integer::compareTo).get();
                 int theSecondBiggerPair = secondGroup.getRepeatingCard().keySet().stream().max(Integer::compareTo).get();
