@@ -93,6 +93,19 @@ public class PokerGame {
 
                 return (firstHighCard > secondHighCard) ? firstName : secondName;
             }
+            case PokerGroupType.TWO_PAIRS: {
+                int theFirstBiggerPair =  firstGroup.getRepeatingCard().keySet().stream().max(Integer::compareTo).get();
+                int theSecondBiggerPair = secondGroup.getRepeatingCard().keySet().stream().max(Integer::compareTo).get();
+
+                if(theFirstBiggerPair == theSecondBiggerPair){
+                    int firstHighCard = firstGroup.findHighCardWhenExistRepeatCard();
+                    int secondHighCard = secondGroup.findHighCardWhenExistRepeatCard();
+                    return (firstHighCard > secondHighCard) ? firstName : secondName;
+                }
+                else{
+                    return (theFirstBiggerPair > theSecondBiggerPair) ? firstName : secondName;
+                }
+            }
             default: return TIED;
         }
     }
